@@ -1,0 +1,7 @@
+items.biblionumber;items.withdrawn;items.itemlost;items.restricted;items.dateaccessioned;items.copynumber;items.uri;items.ccode;items.itemnumber;items.new_status;items.homebranch;items.holdingbranch;items.location;items.barcode;items.price;items.stocknumber;items.itemcallnumber;items.materials;items.datelastborrowed;items.onloan;items.notforloan;items.itype;items.itemnotes;items.enumchron;items.datelastseen;items.itemnotes_nonpublic;995$$1;995$$a;995$$d;995$$g;995$$h;995$$q;995$$s
+000000001;0;;0;;;;;;;PAYV;PAYV;LA;ENSP_000000920401;;;A 0053 (1);;;;0;LIV;;;;;;;;;;;
+000000010;0;;0;;;;;;;PAYV;PAYV;LA;ENSP_000000920401;;;Love Colored Magic;;;;0;LIV;;;;;;;;;;;
+000000010;0;;0;;;;;;;PAYV;PAYV;LA;ENSP_000000920401;;;Crescent Rose;;;;0;LIV;;;;;;;;;;;
+000000010;0;;0;;;;;;;PAYV;PAYV;LA;ENSP_000000920401;;;Nuclear Fusion ~~;;;;0;LIV;;;;;;;;;;;
+000000100;0;;0;;;;;;;PAYV;PAYV;LA;ENSP_000000920401;;;Ara ara;;;;0;LIV;;;;;1;;;;;;Antiqua
+000001000;0;;0;;;;;;;PAYV;PAYV;LA;ENSP_000000920401;;;First|Second;;;;0;LIV;;;;;;;;;;;
