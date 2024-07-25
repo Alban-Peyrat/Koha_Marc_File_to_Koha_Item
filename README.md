@@ -6,6 +6,8 @@ This application extracts from a MARC file all items as CSV using a Koha MARC fr
 __This script assumes that items fields in MARC file are valid.__
 Uses `|` as a separator in case some subfields are repeated.
 
+__Developped with `pymarc 4.2.2`__, might not work with version `5.X.X` of the library.
+
 Set up the following environment variables :
 
 * `RECORDS_FILE` : full path to the file containing all the records
