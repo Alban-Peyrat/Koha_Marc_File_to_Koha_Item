@@ -21,6 +21,7 @@ ERRORS_FILE_PATH = os.path.abspath(os.getenv("ERRORS_FILE"))
 ERR_MAN = Errors_Manager(ERRORS_FILE_PATH) # DON'T FORGET ME
 ITEM_FIELD_TAG = os.getenv("ITEM_FIELD_TAG")
 INCLUDE_UNMAPPED_FIELDS = os.getenv("INCLUDE_UNMAPPED_FIELDS") == "1"
+USE_035_AS_RECORDID = os.getenv("USE_035_AS_RECORDID") == "1"
 # Koha 22.11, capturing groups :
 # 2 : tag, 4 : code, 6 : Koha field
 # pattern :
@@ -105,14 +106,25 @@ for record_index, record in enumerate(MARC_READER):
         continue # Fatal error, skipp
 
     # Gets the record ID
-    record_id = record["001"]
+    record_id = None
+    if USE_035_AS_RECORDID:
+        record_id = None
+        if record.get("035"):
+            record_id = record.get("035").get("a")
+    else:
+        if record.get("001"):
+            record_id = record.get("001").data
+    # Leave if no record ID
     if not record_id:
-        ERR_MAN.trigger_error(record_index, "", Errors.NO_RECORD_ID, "No 001", "")
+        field_used = "001"
+        if USE_035_AS_RECORDID:
+            field_used = "035$a"
+        ERR_MAN.trigger_error(record_index, "", Errors.NO_RECORD_ID, f"No record ID ({field_used})", "")
         continue
     
     # Loop through item field
     for field in record.get_fields(ITEM_FIELD_TAG):
-        CSV_WRITER.writerow(prep_field_for_output(field, record_id.data))
+        CSV_WRITER.writerow(prep_field_for_output(field, record_id))
 
 OUTPUT_FILE.close()
 MARC_READER.close()
